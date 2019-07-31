@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+    <script src="js/style.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+    <div class="header">
+        <img src="images/logo.png" alt="">
+        <div class="header-right">
+            <div class="countDown">
+                <p class="countDown-second">120秒</p>
+                <p class="countDown-remark">自动退出</p>
+            </div>
+            <img src="images/clock.png" />
+            <div class="header-timer">
+                <h1>
+                    {{dt | time-glq}}
+                </h1>
+                <h6>
+                    {{dt | date-glq}}
+                </h6>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="content-tr">
+            <div class="content-div divSet" @click="goToRegister">
+                <img src="images/register-icon.png" alt="">
+                <p>当日挂号</p>
+            </div>
+            <div class="content-div divSet" @click="goToPayment">
+                <img src="images/payment.png" alt="">
+                <p>自助缴费</p>
+            </div>
+        </div>
+        <div class="content-tr">
+            <!--<div class="content-div divSet" @click="goToEvaluate">
+                <img src="images/evaluate.png" alt="">
+                <p>服务评价</p>
+            </div>-->
+            <div class="content-div divSet" @click="goToInformation">
+                <img src="images/information.png" alt="">
+                <p>信息查询</p>
+            </div>
+            <div class="content-div divSet" @click="goToNavigation">
+                <img src="images/navigation.png" alt="">
+                <p>就医导航</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+	Vue.filter('date-glq',function(datestr){
+				
+				var dt=new Date(datestr)
+				var y=dt.getFullYear()
+				var m=(dt.getMonth()+1).toString().padStart(2,'0')
+				var d=dt.getDate().toString().padStart(2,'0')
+				return 	`${y}-${m}-${d}`
+			})
+	Vue.filter('time-glq',function(datestr){
+				
+				var dt=new Date(datestr)
+				var hh=dt.getHours().toString().padStart(2,'0')
+				var mm=dt.getMinutes()
+				
+				return 	`${hh}:${mm}`
+			})
+    new Vue({
+        el:"#app",
+        data:{
+        	dt:new Date()
+        },
+        methods:{
+            goToRegister:function(){
+                location.href="department.html"
+            },
+            goToPayment:function(){
+                location.href="payment.html"
+            },
+//          goToEvaluate:function(){
+//              location.href="evaluate.html"
+//          },
+            goToInformation:function(){
+                location.href="information.html"
+            },
+            goToNavigation:function(){
+                location.href="navigation.html"
+            }
+        }
+    })
+</script>
+</html>

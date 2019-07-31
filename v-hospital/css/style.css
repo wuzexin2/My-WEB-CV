@@ -1,0 +1,958 @@
+﻿*{
+    padding:0;
+    margin:0;
+}
+html,body{height: 100%;position: fixed;width: 100%; }
+body{
+    font-family: "微软雅黑";overflow: hidden;
+}
+.divSet{
+    background-image:-webkit-linear-gradient(
+            rgba(360,360,360,0.6) 0%,
+            rgba(360,360,360,0) 100%);
+    box-shadow:0 0.05rem  0.17rem  #dedede;
+}
+.header{
+    height:0.9rem;
+    display:flex;
+    align-items: center;
+    background: #fff;
+    width:100%;
+    justify-content: space-between;
+}
+.header img{
+    width:4.27rem;
+    height: auto;
+    margin-left: 0.4rem;
+}
+.header-right{
+    display: flex;
+    align-items: center;
+    margin-right: 0.4rem;
+}
+.header-right img{
+    width:0.6rem;
+    height: 0.6rem;
+}
+.header-timer{
+    margin-left: 0.2rem;
+}
+.header-timer h1{
+    color:#8492a6;
+    font-size: 0.4rem;
+}
+.header-timer h6{
+    color:#c0ccda;
+    font-size: 0.2rem;
+}
+.content{
+    background-image: url("../images/bg.png");
+    width: 100%;
+    height: 6.08rem;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.login{
+    background-image: url("../images/login-bg.jpg");
+    
+    background-position: 0px -140px;
+    overflow: hidden;
+}
+.content-tr{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+.content-div{
+    height: 2.3rem;
+    width:2.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.36rem;
+    color:#404b5e;
+    /*background-color: rgba(360,360,360,0.5);*/
+    font-weight: bold;
+    margin:0 0.38rem;
+    border-radius: 0.4rem;
+
+}
+
+.content-tr:nth-child(2n-1){
+    margin-top: 0.4rem;
+}
+
+.content-div img{
+    width: 1.17rem;
+    height: 1.11rem;
+    margin-bottom: 0.1rem;
+
+}
+.content-regist{
+    color:#b87a7a;
+    font-size: 0.24rem;
+    line-height: 0.31rem;
+    margin-top:0.11rem;
+}
+.hospital{
+    font-size: 0.31rem;
+
+    margin-left:0.42rem;
+
+}
+.login-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.login-title{
+    color:#324057;
+    font-size: 0.3rem;
+    margin-top: 0.3rem;
+}
+
+.login-remark{
+    width:4.48rem;
+    height: 3.83rem;
+    background-color: #fff;
+    margin-top:0.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-remark img{
+    width:3.5rem;
+}
+.login-footer{
+    position: absolute;
+    bottom:0.25rem;
+    left:0.4rem;
+    color:#d55050;
+    font-size: 0.24rem;
+    text-align: center;
+    line-height: 0.62rem;
+    display: flex;
+    font-weight: bold;
+
+}
+.login-footer-btn{
+    width:1.6rem;
+    height: 0.62rem;
+    border-radius: 0.1rem;
+}
+.footer-next-btn{
+    color:#404b5e;
+    margin-left: 0.2rem;
+}
+.mask{
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.login-layer{
+    width:4.39rem;
+    height: 2.54rem;
+    background-color: #edd7d7;
+    border-radius: 0.1rem;
+    font-size: 0.3rem;
+    color:#475669;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.title{
+    color:#d55050;
+}
+.remark{
+    margin:0.25rem 0;
+}
+.wait-time{
+    color:#d55050;
+    font-size: 0.24rem;
+}
+.fail-remark{
+    font-size: 0.24rem;
+}
+.doctor-content{
+    margin-top: 0.1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 80vw;
+
+}
+.department-content{
+    margin-top: 0.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 80vw;
+}
+
+.department-content-div{
+
+    margin:0.2rem 0.23rem;
+    width:2.6rem;
+    height: 0.8rem;
+    border-radius: 0.2rem;
+    color:#9d4f4f;
+    font-size: 0.32rem;
+    text-align: center;
+    line-height: 0.8rem;
+}
+.page{
+    position:absolute;
+    right: 0.65rem;
+    top: 1.6rem;
+}
+.page-div{
+    width:0.78rem;
+    height: 0.85rem;
+    border-radius: 0.15rem;
+    text-align: center;
+    line-height:0.75rem;
+    margin:0.24rem 0;
+}
+.page-icon{
+    font-size: 0.7rem;
+    color:#9d4f4f;
+}
+.login-out{
+    width:1.15rem;
+    height:0.74rem;
+    margin-left: 0.3rem;
+    border-radius: 0.15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.login-out-icon{
+    color:#d55050;
+    font-size: 0.3rem;
+}
+.login-out p{
+    color:#d55050;
+    font-size: 0.2rem;
+}
+.register-title{
+    color:#475669;
+    font-size: 0.3rem;
+    text-align: center;
+    margin-top: 0.2rem;
+}
+.remind{
+    color:#d55050;
+}
+
+.doctor-content-div{
+    width:2.92rem;
+    height:1.43rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:0.08rem 0.1rem;
+    border-radius: 0.1rem;
+}
+.doctor-photo{
+    width:0.93rem;
+    height:1.16rem;
+    border:0.01rem solid #caafaf;
+    border-radius: 0.05rem;
+}
+
+.doctor-remark{
+    margin-left:0.15rem;
+    font-size: 0.18rem;
+    color:#324057;
+}
+.doctor-name{
+    font-size: 0.24rem;
+}
+.occupation-name{
+    color:#8492a6;
+}
+.remain-num{
+    margin-top: 0.2rem;
+}
+.comfirm-div{
+    width:5.04rem;
+    height:2.99rem;
+    margin-top: 0.6rem;
+    border-radius: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: -webkit-linear-gradient( rgba(360,360,360,0.2) 0%, rgba(360,360,360,0) 100%);
+}
+.comfirm-div-p p:first-child{
+    margin-top: 0;
+}
+.comfirm-div-p p{
+    font-size: 0.24rem;
+    color:#475669;
+    margin-top:0.2rem;
+}
+.comfirm-div-title{
+    color:#9d4f4f;
+}
+.comfirm-btn{
+    width:1.24rem;
+    height: 0.62rem;
+    color:#9d4f4f;
+    line-height: 0.62rem;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 0.6rem;
+    border-radius: 0.1rem;
+    font-size: 0.24rem;
+
+}
+.time-div{
+    width:5.54rem;
+    height: 4.93rem;
+    background-color: #fff1f1;
+    border-radius: 0.05rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.time-div .doctor-content-div{
+    margin-top:0.53rem;
+}
+.dapartment-name{
+    margin-top:0.2rem ;
+    color:#8492a6
+}
+.timer-classification{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+
+}
+.timer-classification-div{
+    margin:0.2rem 0.16rem;
+    width: 2rem;
+    height: 0.93rem;
+    border-radius: 0.05rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.timer-classification-div .time-remark{
+    color:#9d4f4f;
+    font-size: 0.24rem;
+}
+.timer-classification-div .time-remark span{
+    font-size: 0.2rem;
+}
+
+.timer-classification-div .remain-num{
+    color:#eb7b7b;
+    font-size: 0.2rem;
+    margin-top: 0.08rem;
+}
+.close{
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    position: absolute;
+    right: -0.2rem;
+    top: -0.2rem;
+    background: #fff;
+    text-align: center;
+    line-height: 0.45rem;
+    z-index:999;
+}
+.close-icon{
+    font-weight: bolder;
+    font-size: 0.3rem;
+    color:#9d4f4f
+}
+.timer-classification-div:hover{
+    background:#eccece;
+
+}
+.timer-classification-div:hover p{
+    color:#fff;
+}
+.payment-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.payment-div-th{
+    display: flex;
+    justify-content: space-between;
+    width:9.73rem;
+    margin-top: 0.18rem;
+    margin-bottom: 0.2rem;
+    font-size: 0.24rem;
+    color:#9d4f4f;
+    font-weight: bold;
+}
+.payment-div-th div{
+    flex: 1;
+    text-align: center;
+}
+.payment-div-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:10.31rem;
+    height: 3.2rem;
+    border-radius: 0.25rem;
+    background-image: -webkit-linear-gradient( rgba(360,360,360,0.2) 0%, rgba(360,360,360,0) 100%);
+}
+.payment-div-tr{
+    display: flex;
+    justify-content: space-between;
+    width:9.73rem;
+    height: 0.95rem;
+    align-items: center;
+    font-size: 0.25rem;
+    color:#324057;
+    border-bottom: 0.02rem solid #d5beaf;
+}
+.payment-div-tr div{
+    flex: 1;
+    text-align: center;
+}
+.detail-btn{
+    width:1.23rem;
+    height: 0.59rem;
+    color:#9d4f4f;
+    font-weight: bold;
+    line-height: 0.59rem;
+    text-align: center;
+    border-radius: 0.15rem;
+    margin:0 auto;
+}
+.payment-div-page{
+    width: 2.3rem;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;right: 1.5rem;
+    bottom: 0;
+}
+.payment-div-page .page-div{
+    width:0.79rem;
+    height: 0.72rem;
+}
+.paymentDetail-div-th{
+    display: flex;
+    justify-content: space-between;
+    width:7.9rem;
+    margin-top: 0.18rem;
+    margin-bottom: 0.1rem;
+    font-size: 0.24rem;
+    color:#9d4f4f;
+    font-weight: bold;
+}
+.paymentDetail-div-body{
+    width: 9.53rem;
+
+    border-radius: 0.25rem;
+    padding:0.15rem 0;
+    max-height: 2.3rem;
+    overflow: auto;
+    background-image: -webkit-linear-gradient( rgba(360,360,360,0.2) 0%, rgba(360,360,360,0) 100%);
+}
+.paymentDetail-div-tr{
+    display: flex;
+    justify-content: space-between;
+    width:100%;
+    height: 0.5rem;
+    align-items: center;
+    font-size: 0.25rem;
+    color:#324057;
+}
+.paymentDetail-div-tr:nth-child(2n){
+    background: rgba(186,128,123,0.2);
+}
+.paymentDetail-div-tr div:first-child{
+    margin-left: 0.8rem;
+}
+.paymentDetail-div-tr div:last-child{
+    margin-right: 0.7rem;
+}
+.paymentDetail-div-sum{
+    margin-top: 0.3rem;
+    width: 8rem;font-size: 0.2rem;font-weight: bold;
+    text-align: right;
+}
+.payType-line{
+    width: 7.13rem;
+    display: flex;
+    position: fixed;right: 0.5rem;bottom: 0.3rem;
+    justify-content: space-between;
+}
+.payType-div{
+    width:2.17rem;
+    height: 0.6rem;
+    text-align: center;
+    line-height: 0.6rem;
+    font-size:0.2rem;
+    color:#475669;
+    font-weight: bold;
+    border-radius: 0.15rem;
+
+}
+.payType-div span{
+    line-height: 0.4rem;
+}
+.payType-div-icon{
+    font-size: 0.3rem;
+    color:#475669;
+}
+.password-div{
+    position: relative;
+    padding:0 0.6rem;
+    height:3.3rem;
+    border-radius: 0.05rem;
+    color:#475669;
+    font-size: 0.37rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fff1f1;
+}
+.password-num{
+    margin-top: 0.5rem;
+    display: flex;
+}
+.password-num-inp{
+    width:0.96rem;
+    height: 0.96rem;
+    background: #fff;
+    border:0.01rem solid #cdb1b1;
+    border-radius: 0.05rem;
+    margin:0 0.2rem;
+    text-align: center;
+    line-height: 0.96rem;
+}
+.pay-layer{
+    width: 5.3rem;
+    height: 3.9rem;
+    background-color: #edd7d7;
+    border-radius: 0.1rem;
+    font-size: 0.3rem;
+    color: #475669;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.pay-layer p{
+    line-height: 0.5rem;
+    margin:0 0.5rem;
+    margin-bottom: 0.2rem;
+
+}
+.pay-layer .comfirm-btn{
+    margin-top:0.1rem;
+}
+.evaluate-div{
+    width:8.5rem;
+    height: 2.85rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 0.35rem;
+    align-items: center;
+}
+.star-icon{
+    font-size: 1.2rem;
+    margin:0.15rem;
+
+    text-shadow: 0 0.05rem  0.17rem  #dedede;
+}
+.star{
+    color:#fcff98;
+}
+.noStar{
+    color:#d3b7ac;
+}
+.evaluate-btn{
+    margin-top:0.5rem;
+}
+.evaluate-remark{
+    font-size: 0.24rem;
+    margin-top: 0.2rem;
+}
+.select-div{
+    display: flex;
+    margin-top: 0.1rem;
+    margin-left: 0.9rem;
+}
+.select-div input{
+    width:8.77rem;
+    height: 0.6rem;
+    border-radius: 0.1rem;
+    background: #fff;
+    border: none;
+    margin-right: 0.2rem;
+}
+.select-btn{
+    width:0.98rem;
+    height: 0.62rem;
+    border-radius: 0.1rem;
+    font-size:0.24rem;
+    color:#9d4f4f;
+    font-weight: bold;
+    text-align: center;
+    line-height: 0.62rem;
+
+}
+.information-div-th{
+    margin-left: 0.9rem;
+    display: flex;
+    justify-content: space-around;
+    width: 10rem;
+    margin-top: 0.28rem;
+    margin-bottom: 0.2rem;
+    font-size: 0.24rem;
+    color: #9d4f4f;
+    font-weight: bold;
+}
+.information-div-th div{
+    flex: 1;
+    text-align: center;
+}
+.information-div-body{
+    width: 10rem;
+    margin-left: 0.9rem;
+    border-radius: 0.25rem;
+    padding: 0.2rem 0;
+    overflow: auto;
+    background-image: -webkit-linear-gradient( rgba(360,360,360,0.2) 0%, rgba(360,360,360,0) 100%)
+}
+.information-div-tr{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 0.5rem;
+    align-items: center;
+    font-size: 0.25rem;
+    color: #324057;
+}
+.information-div-tr div{
+    flex: 1;
+    text-align: center;
+}
+.information-div-tr:nth-child(2n){
+    background: rgba(186,128,123,0.2);
+}
+.information-div{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.navigation-content{
+    display: flex;
+    justify-content: center;
+    margin-top: 1.4rem;
+}
+.navigation-content-div{
+    width:2.55rem;
+    height: 0.98rem;
+    border-radius: 0.1rem;
+    font-weight: bold;
+    color:#404b5e;
+    font-size: 0.4rem;
+    text-align: center;
+    line-height: 0.98rem;
+    margin:0 0.2rem;
+}
+.navigationDetail-content{
+    display: flex;
+    flex-direction: column;
+}
+.navigationDetail-content-div{
+    width:8.84rem;
+    height: 3.7rem;
+    border-radius: 0.25rem;
+    margin-top:0.3rem;
+    margin-left: 0.8rem;
+    max-height: 7rem;
+    overflow: auto;
+    padding:0.2rem 0.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: -webkit-linear-gradient( rgba(360,360,360,0.2) 0%, rgba(360,360,360,0) 100%);
+}
+.navigationDetail-content-div img{
+    margin-top: 130px;
+    /* width:5rem; */
+}
+.navigationDetail-content-div p{
+    text-indent: 2em;
+    line-height: 0.4rem;
+    margin-top: 0.2rem;
+    font-size: 0.24rem;
+    color:#324057;
+}
+.manual{
+    display: flex;
+    justify-content: flex-end;
+    text-align: center;
+    line-height: 0.62rem;
+    font-weight: bold;
+    color: #475669;
+    margin-right: 0.45rem;
+    margin-top: 0.7rem;
+}
+.diagnosis-login{
+    width:5rem;
+}
+.diagnosis-login .remark{
+    margin:0.12rem 0;
+}
+.numInp{
+    margin-top: 0.5rem;
+}
+.numInp input{
+    width:5.12rem;
+    height: 0.8rem;
+    border:none;
+    background: #fff;
+    border-radius: 0.1rem;
+    font-size: 0.3rem;
+    color:#475669;
+    padding:0 0.2rem;
+}
+.keyboard-div{
+    margin-top: 0.4rem;
+    position: relative;
+}
+.keyboard-div-tr{
+    display: flex;
+}
+.keyboard-div-tr-box{
+    margin:0.1rem;
+    width:1.01rem;
+    height: 1.01rem;
+    border-radius: 50%;
+    font-size: 0.63rem;
+    font-weight: bold;
+    color:#004e87;
+    line-height: 1.01rem;
+    text-align: center;
+}
+.special-icon{
+    font-size: 0.31rem;
+}
+.zero-div{
+    width:2.21rem;
+    height: 1.01rem;
+    border-radius: 0.49rem;
+}
+.delete-icon{
+    color:#004e87;
+    font-size: 0.61rem;
+}
+.comfirm-icon{
+    width: 1.01rem;
+    height: 2.21rem;
+    position: absolute;
+    right: 0.1rem;
+    bottom: 0.1rem;
+    border-radius: 0.49rem;
+    color: #18bc9c;
+    font-size: 0.47rem;
+    flex-direction: column;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.anaphylaxis-content{
+    margin-top:0.8rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.anaphylaxis-content-div{
+    width:1.7rem;
+    height: 0.5rem;
+    margin:0.2rem 0.9rem;
+    color:#475669;
+    font-size: 0.24rem;
+    display: flex;
+    align-items: center;
+}
+.anaphylaxis-content-div div{
+    width:1rem;
+    text-align: right;
+}
+.nocheck-icon{
+    margin-left: 0.2rem;
+    font-size: 0.5rem;
+    color:#fff;
+}
+.check-icon{
+    margin-left: 0.2rem;
+    font-size: 0.5rem;
+    color:#b87a7a;
+}
+.print-check-icon{
+    font-size: 0.4rem;
+    color:#b87a7a;
+}
+.selfHelp-content-tr{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding-left: 2rem;
+    margin-top: 2.5rem;
+}
+.selfHelp-content-tr .content-div{
+    width:2.55rem;
+    height: 2.55rem;
+}
+.printList-div-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 9.53rem;
+    max-height: 4rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.5rem;
+    overflow: auto;
+    border-radius: 0.25rem;
+    background-image: -webkit-linear-gradient( rgba(360,360,360,0.2) 0%, rgba(360,360,360,0) 100%)
+}
+.printList-div-body .payment-div-tr{
+    width:9rem;
+}
+.printList-div-th{
+    display: flex;
+    justify-content: space-between;
+    width: 9rem;
+    margin-top: 0.38rem;
+    margin-bottom: 0.2rem;
+    font-size: 0.24rem;
+    color: #9d4f4f;
+    font-weight: bold;
+}
+.printList-div-th div{
+    flex:1;
+    text-align: center;
+}
+.anaphylaxis-other-content-div{
+    display: flex;
+    color:#475669;
+    font-size: 0.24rem;
+    margin-top: 0.2rem;
+    align-items: center;
+}
+.anaphylaxis-other-content-div input{
+    width:7.71rem;
+    height: 0.5rem;
+    border:none;
+    border-radius: 0.1rem;
+}
+.diagnosis-comfirm-div{
+    width: 6.25rem;
+    height: 3.25rem;
+    margin-top: 0.6rem;
+    border-radius: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: -webkit-linear-gradient( rgba(360,360,360,0.2) 0%, rgba(360,360,360,0) 100%);
+
+}
+.diagnosis-comfirm-div-p-tr{
+    display: flex;
+    font-size: 0.24rem;
+    color: #475669;
+    width:4.43rem;
+    justify-content: space-between;
+    margin-top: 0.1rem;
+}
+.diagnosis-comfirm-div-p-tr label{
+    color: #9d4f4f;
+}
+.print-btn{
+    margin-top: 0.4rem;
+}
+.print-nocheck-icon{
+    font-size: 0.4rem;
+    color: #fff;
+}
+.comfirm-layer-div{
+    padding:0.4rem;
+    position: relative;
+    width:4.1rem;
+    background-color: #edd7d7;
+    border-radius: 0.1rem;
+    font-size: 0.3rem;
+    color: #475669;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.comfirm-layer-div-tr{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.comfirm-close-btn{
+    color:#475669;
+}
+.index-content{
+    margin-top: 1.9rem;
+    display: flex;
+}
+.index-content-div{
+    width:3rem;
+    margin:0 0.5rem;
+    font-weight: bold;
+    height: 0.98rem;
+    line-height: 0.98rem;
+    text-align: center;
+    font-size: 0.4rem;
+}
+.countDown{
+    width:1.5rem;
+    border-right: 0.01rem solid #ccc;
+    padding-right:0.2rem;
+    text-align: right;
+}
+.countDown-second{
+    font-size: 0.44rem;
+    color:#d55050;
+
+
+}
+.countDown-remark{
+    color:#8492a6;
+    font-size: 0.16rem;
+}

@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+    <script src="js/style.js"></script>
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<div id="app">
+    <div class="header">
+        <img src="images/logo.png" alt="">
+        <div class="header-right">
+            <div class="countDown">
+                <p class="countDown-second">120秒</p>
+                <p class="countDown-remark">自动退出</p>
+            </div>
+            <img src="images/clock.png" />
+            <div class="header-timer">
+                <h1>
+                    {{dt | time-glq}}
+                </h1>
+                <h6>
+                    {{dt | date-glq}}
+                </h6>
+            </div>
+        </div>
+    </div>
+    <div class="content login">
+        <div class="content-regist">
+            <i class="iconfont hospital">&#xe6e1;</i>
+            <span>自助缴费</span>
+        </div>
+        <div class="login-content">
+            <p class="login-title">请插入银联卡，输入密码进行支付</p>
+            <div class="login-remark">
+                <img src="images/inter-gif.gif" />
+            </div>
+        </div>
+        <div class="login-footer">
+            <div class="login-footer-btn divSet" @click="goToLogin">返回首页</div>
+            <div class="login-footer-btn divSet footer-next-btn" @click="goToLogin">上一步</div>
+        </div>
+    </div>
+    <div class="mask" v-if="inputPassword">
+        <div class="password-div">
+            <div class="close" @click="closeMask">
+                <i class="iconfont close-icon" >&#xe70c;</i>
+            </div>
+            <p >请输入您的银联密码</p>
+            <input ref="pwd" type="password" maxlength="6" v-model="msg"  style="position: absolute;z-index: -1;left:-100%;opacity: 0"/>
+            <div class="password-num" @click="focus">
+                <div class="password-num-inp"><i v-if="msgLength > 0">*</i></div>
+                <div class="password-num-inp"><i v-if="msgLength > 1">*</i></div>
+                <div class="password-num-inp"><i v-if="msgLength > 2">*</i></div>
+                <div class="password-num-inp"><i v-if="msgLength > 3">*</i></div>
+                <div class="password-num-inp"><i v-if="msgLength > 4">*</i></div>
+                <div class="password-num-inp"><i v-if="msgLength > 5">*</i></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+	Vue.filter('date-glq',function(datestr){
+				
+				var dt=new Date(datestr)
+				var y=dt.getFullYear()
+				var m=(dt.getMonth()+1).toString().padStart(2,'0')
+				var d=dt.getDate().toString().padStart(2,'0')
+				return 	`${y}-${m}-${d}`
+			})
+	Vue.filter('time-glq',function(datestr){
+				
+				var dt=new Date(datestr)
+				var hh=dt.getHours().toString().padStart(2,'0')
+				var mm=dt.getMinutes()
+				
+				return 	`${hh}:${mm}`
+			})
+    new Vue({
+        el:"#app",
+        data:{
+        	dt:new Date()
+            msg: '',
+            msgLength:0,
+            inputPassword:false
+        },
+        watch:{
+            msg:function(curVal){
+                if(/[^\d]/g.test(curVal)){
+                    this.msg = this.msg.replace(/[^\d]/g,'');
+                }else{
+                    this.msgLength = curVal.length;
+                }
+            },
+        },
+        methods:{
+            goToLogin:function(){
+                location.href="index.html"
+            },
+            focus:function(){
+                this.$refs.pwd.focus();
+            },
+            closeMask:function(){
+                this.inputPassword = false
+            }
+        }
+    })
+</script>
+</body>
+</html>

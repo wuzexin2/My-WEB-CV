@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+    <script src="js/style.js"></script>
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<div id="app">
+    <div class="header">
+        <img src="images/logo.png" alt="">
+        <div class="header-right">
+            <div class="countDown">
+                <p class="countDown-second">120秒</p>
+                <p class="countDown-remark">自动退出</p>
+            </div>
+            <img src="images/clock.png" />
+            <div class="header-timer">
+                <h1>
+                    {{dt | time-glq}}
+                </h1>
+                <h6>
+                    {{dt | date-glq}}
+                </h6>
+            </div>
+            <div class="login-out divSet">
+                <i class="iconfont login-out-icon">&#xe61e;</i>
+                <p>退出登录</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="content login">
+        <div class="content-regist">
+            <i class="iconfont hospital">&#xe6e1;</i>
+            <span>当日挂号</span>
+        </div>
+        <div class="login-content">
+            <p class="register-title">请确认挂号信息</p>
+            <div class="comfirm-div divSet">
+                <div class="comfirm-div-p">
+                    <p><span class="comfirm-div-title">患者姓名：</span>李渊</p>
+                    <p><span class="comfirm-div-title">挂号科室：</span>牙体病科</p>
+                    <p><span class="comfirm-div-title">挂号医生：</span>董玉珠 副主任医生</p>
+                    
+                </div>
+
+            </div>
+            <div class="comfirm-btn divSet" @click="goToSuccess">
+                确认
+            </div>
+        </div>
+        <div class="login-footer">
+            <div class="login-footer-btn divSet" @click="goToLogin">返回首页</div>
+            <div class="login-footer-btn divSet footer-next-btn" @click="goPrev">上一步</div>
+        </div>
+    </div>
+
+</div>
+<script>
+	Vue.filter('date-glq',function(datestr){
+				
+				var dt=new Date(datestr)
+				var y=dt.getFullYear()
+				var m=(dt.getMonth()+1).toString().padStart(2,'0')
+				var d=dt.getDate().toString().padStart(2,'0')
+				return 	`${y}-${m}-${d}`
+			})
+	Vue.filter('time-glq',function(datestr){
+				
+				var dt=new Date(datestr)
+				var hh=dt.getHours().toString().padStart(2,'0')
+				var mm=dt.getMinutes()
+				
+				return 	`${hh}:${mm}`
+			})
+    new Vue({
+        el:"#app",
+        data:{
+        	dt:new Date(),
+            page:0,
+            index:0,
+            items:[1,2,3,4]
+        },
+        methods:{
+            goPrev:function(){
+                location.href="doctor.html"
+            },
+            goToLogin:function(){
+                location.href="index.html"
+            },
+            goToSuccess:function(){
+                location.href="success.html"
+            }
+        }
+    })
+</script>
+</body>
+</html>

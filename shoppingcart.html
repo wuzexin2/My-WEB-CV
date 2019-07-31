@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+		<title>购物车</title>
+		<style type="text/css">
+			body,html{margin:0;padding:0;height:100%}
+			body{min-width:320px;margin:0;padding:0;font-family:"microsoft yahei",Verdana,Arial,Helvetica,sans-serif;font-size:1em}
+			a{text-decoration:none}
+			img{max-width:100%;vertical-align:middle}
+			*{margin:0;padding:0}
+			div{margin:0;padding:0}
+			li,ul{list-style:none}
+			em{font-style:normal}
+			.body{width:100%;max-width:640px;margin:0 auto;padding-bottom:3.2rem;box-sizing:border-box}
+			.shop{width:100%;height:2.3rem;border-bottom:1px solid #dcdcdc;line-height:2.3rem;padding-left:2rem;box-sizing:border-box}
+			.shop i{display:inline-block;width:1.3rem;height:1.2rem;vertical-align:sub;margin-right:5px}
+			.product{width:100%;padding-bottom:3.05rem}
+			.product .product-box{width:100%;height:5.8rem;position:relative}
+			.product-box .product-ckb{width:3rem;height:100%;display:inline-block;float:left;text-align:center;line-height:5.9rem;z-index:99;position:absolute}
+			.product-ckb em{width:1.1rem;height:1.1rem;border-radius:50%;border:1px solid #B8B4B4;display:inline-block;cursor:pointer}
+			.product-ckb .product-xz{background:url(img/gouico.png) no-repeat 0 0;background-size:1.1rem;border:0;display:inline-block}
+			.product-sx{float:left;height:5.8rem;padding:.6rem 0;border-bottom:1px solid #e1e1e1;padding-left:3rem;display:inline-block;width:100%;box-sizing:border-box;position:absolute;top:0;left:0}
+			.product-sx .product-img{width:4.5rem;height:4.5rem;display:inline-block;float:left}
+			.product-sx .product-name{font-size:.8rem;color:#000;max-width:70%;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;padding-left:10px}
+			.product-sx .product-price{font-size:1rem;color:#e46b7e;margin:18px 0 0 14px;display:inline-block;float:left}
+			.product-amount{position:absolute;right:15px;bottom:10px}
+			.product_gw{border:1px solid #dbdbdb;width:110px;line-height:25px;overflow:hidden;font-size:.6rem}
+			.product_gw em{display:block;height:25px;width:35px;float:left;color:#7A7979;border-right:1px solid #dbdbdb;text-align:center;cursor:pointer}
+			.product_gw .product-num{display:block;float:left;text-align:center;width:38px;font-style:normal;font-size:12px;line-height:25px;border:0;pointer-events:none}
+			.product_gw em.product-add{float:right;border-right:0;border-left:1px solid #dbdbdb}
+			.product-del{width:1.15rem;display:inline-block;position:absolute;right:5px;top:8px;cursor:pointer}
+			.product-js{width:100%;height:3rem;display:inline-block;position:fixed;bottom:0;border-top:1px solid #bfbfbf;line-height:3rem;max-width:640px;background:#fff;z-index:99}
+			.product-al{display:inline-block;height:3rem;width:7.5rem}
+			.product-js .product-all{width:3rem;height:100%;display:inline-block;float:left;text-align:center;line-height:3.5rem}
+			.product-js .product-all em{width:1.1rem;height:1.1rem;border-radius:50%;border:1px solid #B8B4B4;display:inline-block;cursor:pointer}
+			.product-js .product-all .product-all-on{background:url(img/gouico.png) no-repeat 0 0;background-size:1.1rem;border:0;display:inline-block}
+			.all-xz{cursor:pointer}
+			.product-all-qx{color:#797979}
+			.all-sl{color:#797979;display:inline-block;margin-left:8px}
+			.product-all-sl{position:relative;top:1px}
+			.all-product{text-align:right;float:right}
+			.all-product .all-product-a{font-size:1.1rem;color:#f41638;font-weight:bolder;display:inline-block;margin-right:10px}
+			.product-sett{float:right;width:6.5rem;text-align:center;color:#fff;background:#ed535f}
+			.product-sett-a{background:#b2b2b2;pointer-events:none}
+			.kon-cat{display:none}
+			.catkon{position:absolute;top:0;left:0;width:100%;height:100%;padding-bottom:3.2rem;box-sizing:border-box;text-align:center;background:#f4f4f4;display:table;z-index:100}
+			.kon-box{text-align:center;display:table-cell;vertical-align:middle;cursor:pointer}
+			.kon-hz{width:50%;margin:0 auto}
+			.kon-box .kon-wz{display:block;font-size:1rem;color:#aaa;margin:20px 0}
+			.kon-box .kon-lj{display:inline-block;width:100%;height:2rem;line-height:2rem;background:#383838;color:#fff;margin-top:10px}
+
+		</style>
+	</head>
+	<body>
+		<div class="body">
+			<div class="shop"><i></i><span>我的购物车</span></div>
+			<div class="product">
+				<div class="product-box">
+					<div class="product-ckb"><em class="product-em product-xz"></em></div>
+					<div class="product-sx">
+						<a href="###">
+							<img src="img/a3.png" class="product-img" />
+							<span class="product-name">酷冷至尊(Cooler Master)T610P CPU风冷散热器</span>
+						</a>
+						<span class="product-price">¥&thinsp;<span class="price">296</span></span>
+						<div class="product-amount">
+							<div class="product_gw">
+							   <em class="product-jian">-</em>
+							   <input type="text" value="1" class="product-num"/>
+							   <em class="product-add">+</em>
+							</div>
+						</div>
+						<div class="product-del"><img src="img/deleteico.png"/></div>
+					</div>
+				</div>
+				<div class="product-box">
+					<div class="product-ckb"><em class="product-em"></em></div>
+					<div class="product-sx">
+						<a href="###">
+							<img src="img/a1.png" class="product-img" />
+							<span class="product-name">游戏悍将 35英寸曲面电竞显示器21:9带鱼屏准4K游戏显示器</span>
+						</a>
+						<span class="product-price">¥&thinsp;<span class="price">296</span></span>
+						<div class="product-amount">
+							<div class="product_gw">
+							   <em class="product-jian">-</em>
+							   <input type="text" value="1" class="product-num"/>
+							   <em class="product-add">+</em>
+							</div>
+						</div>
+						<div class="product-del"><img src="img/deleteico.png"/></div>
+					</div>
+				</div>
+				
+				<div class="product-box">
+					<div class="product-ckb"><em class="product-em"></em></div>
+					<div class="product-sx">
+						<a href="###">
+							<img src="img/a2.png" class="product-img" />
+							<span class="product-name">技嘉（GIGABYTE） 2080TURBO OC 8GC</span>
+						</a>
+						<span class="product-price">¥&thinsp;<span class="price">296</span></span>
+						<div class="product-amount">
+							<div class="product_gw">
+							   <em class="product-jian">-</em>
+							   <input type="text" value="1" class="product-num"/>
+							   <em class="product-add">+</em>
+							</div>
+						</div>
+						<div class="product-del"><img src="img/deleteico.png"/></div>
+					</div>
+				</div>
+				
+				<div class="product-box">
+					<div class="product-ckb"><em class="product-em"></em></div>
+					<div class="product-sx">
+						<a href="###">
+							<img src="img/a4.png" class="product-img" />
+							<span class="product-name">AMD 锐龙 5 2600X 处理器 (R5) 6核12线程 AM4 </span>
+						</a>
+						<span class="product-price">¥&thinsp;<span class="price">296</span></span>
+						<div class="product-amount">
+							<div class="product_gw">
+							   <em class="product-jian">-</em>
+							   <input type="text" value="1" class="product-num"/>
+							   <em class="product-add">+</em>
+							</div>
+						</div>
+						<div class="product-del"><img src="img/deleteico.png"/></div>
+					</div>
+				</div>
+			</div>
+			<div class="product-js">
+				<div class="product-al">
+					<div class="product-all">
+						<em class=""></em>
+					</div>
+					<div class="all-xz"><span class="product-all-qx">全选</span><div class="all-sl" style="display: none;">(<span class="product-all-sl">0</span>)</div></div>
+				</div>
+				<a href="order.html" class="product-sett product-sett-a">结算</a>
+				<div class="all-product"><span class="all-product-a">¥&thinsp;<span class="all-price">296</span></span></div>
+				
+			</div>
+		</div>
+		<!--购物车空-->
+		<div class="kon-cat">
+			<div class="catkon">
+				<div class="kon-box">
+					<div class="kon-hz">
+						<img src="img/cart-air.png" />
+						<span class="kon-wz">购物车什么都没有</span>
+						<a href="###" class="kon-lj">去逛逛</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script>
+		$(function(){
+	//加的效果
+	$(".product-add").click(function(){
+		var n=$(this).prev().val();
+		var num=parseInt(n)+1;
+		if(num==99){ return;}
+			$(this).prev().val(num);
+		TotalPrice();
+	});
+	//减的效果
+	$(".product-jian").click(function(){
+		var n=$(this).next().val();
+		var num=parseInt(n)-1;
+		if(num==0){ return;}
+			$(this).next().val(num);
+		TotalPrice();
+	});
+	
+	$(".product-ckb").click(function(){
+		$(this).children("em").toggleClass("product-xz");
+		TotalPrice();
+		productxz();
+	});
+	//全选产品
+	$(".product-al").click(function(){
+		var fxk = $(".product-em");
+		var qx = $(".product-all em");
+		qx.toggleClass("product-all-on");
+		if($(this).find(".product-all em").is(".product-all-on")){
+			fxk.addClass("product-xz");
+		}else{
+			fxk.removeClass("product-xz");
+		}
+		TotalPrice();
+		shuliang()
+	});
+	//删除产品
+	$(".product-del").click(function(){
+		if(confirm("您确定要删除当前商品？")){
+			$(this).closest(".product-box").remove();
+		}
+		
+		koncat();
+		TotalPrice();
+	});
+	
+	
+	TotalPrice();
+	shuliang();
+	koncat();
+});
+//选中产品
+function productxz(){
+	var xz=$(".product-em");
+	var xz1=$(".product-xz");
+	if(xz1.length==xz.length){
+		$(".product-all em").addClass("product-all-on");
+	}else{
+		$(".product-all em").removeClass("product-all-on");
+	}
+	shuliang();
+	TotalPrice();
+	
+}
+//计算产品价格
+function TotalPrice(){
+	//总价
+	var total = 0;
+	$(".product-em").each(function(){
+		
+		if($(this).is(".product-xz")){
+			var price = parseInt($(this).parents(".product-ckb").siblings().find(".price").text());//得到产品单价
+			var slproice = parseInt($(this).parents(".product-ckb").siblings().find(".product-num").val());//得到产品数量
+			var dgtotal = price * slproice;
+			total+=dgtotal;
+		}
+		$(".all-price").text(total.toFixed(2)); //输出全部总价
+	});
+	
+}
+//获取选择产品数量
+function shuliang(){
+	$(".product-all-sl").text("");
+	var cd = $(".product-xz").length;
+	$(".product-all-sl").text(cd);
+	
+	if(cd>0){
+		$(".product-all-qx").text("已选");
+		$(".all-sl").css("display","inline-block");
+		$(".product-sett").removeClass("product-sett-a");
+	}else{
+		$(".product-all-qx").text("全选");
+		$(".all-sl").css("display","none");
+		$(".product-sett").addClass("product-sett-a");
+	}
+}
+//购物车空
+function koncat(){
+	var pic = $(".product-box").length;
+	if(pic<=0){
+		$(".all-price").text("0.00");
+		$(".product-all-qx").text("全选");
+		$(".all-sl").css("display","none");
+		$(".product-sett").addClass("product-sett-a");
+		$(".product-all em").removeClass("product-all-on");
+		$(".kon-cat").css("display","block");
+	}else{
+		$(".kon-cat").css("display","none");
+	}
+}
+	</script>
+</html>
