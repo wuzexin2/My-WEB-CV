@@ -1,0 +1,89 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>love</title>
+  <style>
+  *{
+               margin:0;
+               padding:0  
+  }
+
+body{
+    background:#000000;
+    box-shadow:0 0 40px red;
+}
+.love{
+               width:205px;
+			   height:250px;
+               padding-top: 100px;
+			   margin:100px auto;
+			   animation: love 1s infinite alternate;
+			
+			   } 
+			  
+@keyframes love{
+			    100%{transform: scale(1.5);}
+			    }
+			  
+     
+.love div{
+             float:left;
+             width:150px;
+			 height:228px;
+             
+             background-color:red;
+              border-radius: 100px 100px 0 0;
+			  transform: rotate(-45deg);
+			  box-shadow:0 0 40px red;
+        
+        }
+
+              @keyframes shadow{
+			   100%{box-shadow:0 0 400px red}
+                                            }
+		 
+.love .left{
+       transform:  rotate(45deg);
+	   margin-left:-95px;
+	   }
+.love .right{      
+       transform:  rotate(-45deg);
+       
+}
+
+p{
+font-size:100px;
+text-align:center;
+color:#9999ff}
+
+#pmd span{
+    font-size: 200px;
+    color: red
+}
+  </style>
+ </head>
+ <body>
+ 
+<div class="love">
+     <div class="right"></div>
+     <div class="left"></div>
+ </div>
+ <p id="pmd"> <span>I</span> LOVE YOU</p>
+<script>
+    var oPmd=document.getElementById('pmd');
+    var str='I LOVE YOU';
+    // console.log(str.length)//10
+    var num=1;
+    var timer=setInterval(function(){
+        oPmd.innerHTML=str.slice(0,num)+'<span>'+str.slice(num,num+1)+'</span>'+str.slice(num+1);
+        num ++;
+        if(num>=str.length){
+            num=0;
+        }
+    },1000);
+</script>
+ </body>
+</html> 

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>组件学习</title>
+	<!-- 	<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script> -->
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<!-- 案例1 -->
+<!-- 		<div id="app">
+			<message content="hello world"></message>
+			
+		</div>
+		<script type="text/javascript">
+		var Message=Vue.extend({
+			props:['content'],
+			template:'<h1>{{content}}</h1>'
+		})	;
+		Vue.component('message',Message);
+		var vm=new Vue({
+			el:'#app',
+		})
+		</script> -->
+		
+		
+		<!-- 案例2 -->
+		<!-- <div id="app2">
+			<coml></coml>
+		</div>
+		<script>
+			//全局注册
+			/*
+			//coml组件自定义命名
+			Vue.component('coml',{
+				template:'<div><h3>hello world</h3></div>'
+			})*/
+			//局部注册
+			var child={
+				template:'<h3> how are you</h3>'
+			}
+			var vm=new Vue({
+				el:'#app2',
+				data:{},
+				methods:{},
+				components:{
+					'coml':child
+				}
+			})
+		</script> -->
+		
+		
+		<!-- 自定义组件的数据属性：data必须是函数 -->
+		<!-- <div id="app3">
+			<adc></adc>
+		</div>
+		<script>
+			Vue.component('adc',{
+				// template:'<h3>i am fine</h3>',
+				template:'<h3>{{msg}}</h3>',
+				data:function(){
+					return{
+						msg:'you are fine'
+					};
+				}
+			});
+			var vm=new Vue({
+				el:'#app3',
+				
+				methods:{},
+			
+			})
+		</script> -->
+		
+
+		<!-- 自定义组件事件方法 -->
+<!-- 		<div id="app4">
+			<add></add>
+		</div>
+		<script>
+			Vue.component('add',{
+				// template:'<h3>i am fine</h3>',
+				template:'<h3 @click="HAHA">{{msg}}</h3>',
+				data:function(){
+					return{
+						msg:'he is fine'
+					};
+				},
+				methods:{
+					HAHA:function(){
+						this.msg='he is not fine';
+					}
+				}
+			});
+			var vm=new Vue({
+				el:'#app4',
+				data:{},
+				methods:{},
+			
+			})
+		</script> -->
+		
+				<!-- 自定义数据属性多重相加 -->
+		
+<!-- 		<div id="app5">
+			<adc></adc>
+			<hr />
+			<adc></adc>
+			<hr>
+			<adc></adc>
+		</div>
+		<script>
+			var data={
+				// counter:0
+				counter:0
+			}
+			Vue.component('adc',{
+				// template:'<h3>i am fine</h3>',
+				template:'<button @click="add" >{{counter}}</button>',
+				// 下面这个多个组件会一同改变,不能单一变化
+				// data:function(){
+				// 	return data;
+				// },
+				
+				//单个组件变化
+				data:function(){
+					return{counter:0}
+				},
+				methods:{
+					add:function(){
+						this.counter++
+					}
+				}
+			});
+			var vm=new Vue({
+				el:'#app5',
+				data:{},
+				methods:{},
+			
+			})
+		</script> -->
+		
+		<!-- template属性值配合模板标签使用 -->
+<!-- 				<div id="app6">
+					<add></add>
+				</div>
+				<template id="ccc">
+					<div>
+						<h3 @click="HAHA">{{msg}}</h3>
+						<ul>
+							<li v-for="(val,index) in arr">
+								{{index}}------{{val}}
+							</li>
+						</ul>
+					</div>
+				</template>
+				<script>
+					Vue.component('add',{
+						// template:'<h3>i am fine</h3>',
+						
+						template:'#ccc',
+						data:function(){
+							return{
+								msg:'he is fine',
+								arr:['she','they','me']
+							};
+						},
+						methods:{
+							HAHA:function(){
+								this.msg='he is not fine';
+							}
+						}
+					});
+					var vm=new Vue({
+						el:'#app6',
+						data:{},
+						methods:{},
+					
+					})
+				</script> -->
+				
+				<!-- 动态组件 -->
+				<div id="app7">
+					<a href="" @click.prevent="flag=true">登陆</a>
+
+					<a href="" @click.prevent="flag=false">注册</a>
+					<login v-if="flag"></login>
+					<register v-else="flag"></register>
+				</div>
+				     
+				<script>
+					// Vue.component('login',{
+					// 	template:'<h3>我是登录</h3>'
+					// });
+					// Vue.component('register',{
+					// 	template:'<h3>我是注册</h3>'
+					// });
+					var vm=new Vue({
+						el:'#app7',
+						data:{
+							flag:true,
+						},
+						methods:{},
+						components:{
+							'login':{
+								template:'<h3>我是登录</h3>'
+							},
+							'register':{
+								template:'<h3>我是注册</h3>'
+							}
+						}
+					});
+				
+				
+			
+				</script> 
+	</body>
+</html>

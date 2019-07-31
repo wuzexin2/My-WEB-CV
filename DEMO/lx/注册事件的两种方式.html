@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册事件的两种方式</title>
+</head>
+<body>
+    <button>传统注册事件</button>
+    <button>方式监听注册事件</button>
+    <button>attachEvent方式监听注册事件</button>
+    <script>
+        var btn=document.querySelectorAll('button');
+
+        //1.传统方式注册事件
+        btn[0].onclick=function(){
+            alert('hi');
+        }
+        //验证传统同一元素同一事件只能处理一个
+        btn[0].onclick=function(){
+            alert('hao hi you');
+        }
+        //2.事件监听注册事件，addEventListenner IE9以上支持
+        //注意：1.里面的事件类型是字符串，必定加引号，而且不带on
+        //2.同一个元素 同一个事件可以添加多个侦听器（事件处理程序）  
+        btn[1].addEventListener('click',function(){
+            alert('22');
+        })
+        btn[1].addEventListener('click',function(){
+            alert('33');
+        })
+
+            //3.IE9以前的版本支持
+        btn[2].attachEvent('onclick',function(){
+            alert('666')
+        })
+    </script>
+</body>
+</html>

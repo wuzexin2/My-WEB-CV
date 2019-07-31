@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>父子组件</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="js/vue.js"></script>
+	</head>
+
+	<body>
+	<div id="app">
+		<div>
+			<label>父组件:</label><input type="text" v-model="msg"/>
+		</div>
+		<!-- 父组件单向绑定修改数据子组件，子组件无法修改父组件 
+		<add  :msg="msg"></add>-->
+		<!-- 父子组件双向绑定，互相修改 -->
+		<add  :msg.sync="msg"></add>
+	</div>
+		
+		<script>
+			Vue.component('add',{
+				props:['msg'],
+				//template:\很重要
+				template:'<div>\
+					<label>子组件:</label>\
+					<input type="text" v-model="msg"/>\
+				</div> '
+				
+				
+			});
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					msg:''
+				},
+				methods:{},
+			})
+		</script>
+
+	</body>
+
+</html>

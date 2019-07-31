@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>3D旋转照片</title>
+		<style>
+			*{padding: 0;margin: 0;}
+			body{width: 100%;background: linear-gradient(gray 0%,white 100%);}
+			#react{
+				width: 200px; height: 200px;
+				margin: 200px auto; transform-style: preserve-3d;
+				animation: rotate 20s infinite;
+				animation-timing-function: linear;
+				}
+				#react div{position: absolute;
+				transition: all 4s;}
+				div out_pic{
+					width: 200px;
+					height: 200px;
+					opacity: 0.9;
+				}
+				div .in_pic{width: 100px;height: 100px;}
+				#react span{display: block;position: absolute; width: 100px;height: 100px;top: 50px;left: 50px;}
+				@keyframes rotate{
+					from{transform: rotateX(0deg) rotateY(0deg);}
+					to{transform: rotateX(360deg) rotateY(360deg);}
+				}
+				.out_frount{
+    				transform:translateZ(100px);
+				}
+				.out_back{
+				    transform:translateZ(-100px);
+				}
+				.out_left{
+				    transform:rotateY(90deg) translateZ
+				
+				(100px);
+				}
+				.out_right{
+				    transform: rotateY(-90deg) translateZ
+				
+				(100px);
+				}
+				.out_top{
+				    transform:rotateX(90deg) translateZ
+				
+				(100px);
+				}
+				.out_bottom{
+				    transform: rotateX(-90deg) translateZ
+				
+				(100px);
+				}
+				.in_frount{
+				    transform:translateZ(50px);
+				}
+				.in_back{
+				    transform:translateZ(-50px);
+				}
+				.in_left{
+				    transform:rotateY(90deg) translateZ
+				
+				(50px);
+				}
+				.in_right{
+				    transform: rotateY(-90deg) translateZ
+				
+				(50px);
+				}
+				.in_top{
+				    transform:rotateX(90deg) translateZ
+				
+				(50px);
+				}
+				.in_bottom{
+				    transform: rotateX(-90deg) translateZ
+				
+				(50px);
+				}
+				#react:hover .out_frount{
+				    transform:translateZ(200px);
+				}
+				#react:hover .out_back{
+				    transform:translateZ(-200px);
+				}
+				#react:hover .out_left{
+				    transform:rotateY(90deg) translateZ
+				
+				(200px);
+				}
+				#react:hover .out_right{
+				    transform: rotateY(-90deg) translateZ
+				
+				(200px);
+				}
+				#react:hover .out_top{
+				    transform:rotateX(90deg) translateZ
+				
+				(200px);
+				}
+				#react:hover .out_bottom{
+				    transform: rotateX(-90deg) translateZ
+				
+				(200px);
+				}
+		</style>
+	</head>
+	<body>
+		<div id="react">
+			<div class="out_frount">
+				<img class="out_pic" src="img/p1.png"/>
+			</div>
+			<div class="out_back">
+				<img class="out_pic"src="img/p2.png"/>
+			</div>
+			<div class="out_left">
+				<img class="out_pic"src="img/p3.png"/>
+			</div>
+			<div class="out_right">
+				<img class="out_pic"src="img/p4.png"/>
+			</div>
+			<div class="out_top">
+				<img class="out_pic"src="img/p5.png"/>
+			</div>
+			<div class="out_bottom">
+				<img class="out_pic"src="img/p6.png"/>
+			</div>
+			<span class="in_frount">
+				<img class="in_pic" src="img/pic2.jpg"/>
+			</span>
+			<span class="in_back">
+				<img class="in_pic" src="img/pic3.jpg"/>
+			</span>
+			<span class="in_left">
+				<img class="in_pic" src="img/pic4.jpg"/>
+			</span>
+			<span class="in_right">
+				<img class="in_pic" src="img/pic5.jpg"/>
+			</span>
+			<span class="in_top">
+				<img class="in_pic" src="img/pic8.jpg"/>
+			</span>
+			<span class="in_bottom">
+				<img class="in_pic" src="img/pic13.jpg"/>
+			</span>
+			
+		</div>
+	</body>
+</html>

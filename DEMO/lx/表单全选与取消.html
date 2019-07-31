@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单全选与取消全选</title>
+    <style>
+        .warp{
+            text-align: center;
+            position: relative;
+        }
+    table{
+        
+        width: 200px;
+        position: absolute;
+        border-collapse: collapse;
+        top: 100px;
+        left: 400px;
+        
+    }
+    table td,table th{
+        border: 1px solid blue;
+        color: #666666;
+        height: 30px
+        
+    }
+    table thead th{
+        background-color: pink;
+        width: 100px
+    }
+    .bg{
+        background-color: yellowgreen
+    }
+    </style>
+</head>
+<body>
+    <div class="warp">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" id="AllSelect" >
+                        <!-- <input type="checkbox" id="AllSelect" checked="checked"> checked="checked"  显示勾选状况 -->
+                    </th>
+                    <th>商品</th>
+                    <th>价钱</th>
+                </tr>
+            </thead>
+            <tbody id="tb">
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>iphone 8</td>
+                    <td>8000</td>
+                </tr>
+                <tr>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td>iphone </td>
+                        <td>5000</td>
+                    </tr>
+                    <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>iphone 7</td>
+                            <td>4000</td>
+                        </tr>
+                        <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>iphone 2</td>
+                                <td>000</td>
+                            </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        //1.全选与取消全选的做法
+
+        //获取元素
+        var AllSelect=document.getElementById('AllSelect');
+        var tb=document.getElementById('tb').getElementsByTagName('input');
+        var trs=document.querySelector('tbody').querySelectorAll('tr');
+        //注册事件
+        AllSelect.onclick=function(){
+            console.log(this.checked);
+            //this.checked 可以获知当前复选框的状况，选中为true，未选中为false
+            //for 循环实现全选，当点击全选框时，下面复选框全部勾选
+            for( var i=0;i<tb.length;i++){
+                tb[i].checked=this.checked;
+            }
+        }
+
+         for(var i=0;i<tb.length;i++){
+            tb[i].onclick=function(){
+                var flag=true;
+                for(var i=0;i<tb.length;i++){
+                    if(! tb[i].checked){
+                       flag=false;
+                       break;
+                    }
+                }
+                AllSelect.checked=flag;
+            }
+        }
+
+        for(var j=0;j<trs.length;j++){
+            trs[j].onmouseover=function(){
+                //console.log(1111);
+                this.className='bg';
+            }
+            trs[j].onmouseout=function(){
+                //console.log(1111);
+                this.className='';
+            }
+        }
+    </script>
+</body>
+</html>
